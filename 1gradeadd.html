@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Lesson: Addition</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .lesson-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #009688;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        input[type="number"] {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #009688;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #009688;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00796b;
+        }
+        #example-result {
+            color: #009688;
+            font-weight: bold;
+        }
+        #answer-feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1>Math Lesson: Addition</h1>
+        <p>In this lesson, you will learn how to add numbers together.</p>
+        
+        <h2>Example 1: Adding Two Numbers</h2>
+        <p>Let's start with a simple example:</p>
+        <p>2 + 3 = <span id="example-result">?</span></p>
+        <input type="number" id="user-answer">
+        <button onclick="checkAnswer()">Check Answer</button>
+        <p id="answer-feedback"></p>
+
+        <script>
+            function checkAnswer() {
+                const userAnswer = parseInt(document.getElementById("user-answer").value);
+                const correctAnswer = 2 + 3;
+                const feedbackElement = document.getElementById("answer-feedback");
+
+                if (userAnswer === correctAnswer) {
+                    feedbackElement.textContent = "Correct! 2 + 3 equals 5.";
+                    feedbackElement.style.color = "#00ff00"; // Green color for correct answer
+                } else {
+                    feedbackElement.textContent = "Incorrect. Try again.";
+                    feedbackElement.style.color = "#ff0000"; // Red color for incorrect answer
+                }
+            }
+        </script>
+
+        <h2>Practice</h2>
+        <p>Now, try these exercises:</p>
+        <p>1. 7 + 9 = <input type="number" id="exercise1-answer"> <button onclick="checkExercise1()">Check Answer</button></p>
+        <p id="exercise1-feedback"></p>
+
+        <p>2. 12 + 5 = <input type="number" id="exercise2-answer"> <button onclick="checkExercise2()">Check Answer</button></p>
+        <p id="exercise2-feedback"></p>
+
+        <p>3. 25 + 30 = <input type="number" id="exercise3-answer"> <button onclick="checkExercise3()">Check Answer</button></p>
+        <p id="exercise3-feedback"></p>
+
+        <script>
+            function checkExercise1() {
+                const userAnswer = parseInt(document.getElementById("exercise1-answer").value);
+                const correctAnswer = 7 + 9;
+                const feedbackElement = document.getElementById("exercise1-feedback");
+
+                if (userAnswer === correctAnswer) {
+                    feedbackElement.textContent = "Correct! 7 + 9 equals 16.";
+                    feedbackElement.style.color = "#00ff00"; // Green color for correct answer
+                } else {
+                    feedbackElement.textContent = "Incorrect. Try again.";
+                    feedbackElement.style.color = "#ff0000"; // Red color for incorrect answer
+                }
+            }
+
+            function checkExercise2() {
+                const userAnswer = parseInt(document.getElementById("exercise2-answer").value);
+                const correctAnswer = 12 + 5;
+                const feedbackElement = document.getElementById("exercise2-feedback");
+
+                if (userAnswer === correctAnswer) {
+                    feedbackElement.textContent = "Correct! 12 + 5 equals 17.";
+                    feedbackElement.style.color = "#00ff00"; // Green color for correct answer
+                } else {
+                    feedbackElement.textContent = "Incorrect. Try again.";
+                    feedbackElement.style.color = "#ff0000"; // Red color for incorrect answer
+                }
+            }
+
+            function checkExercise3() {
+                const userAnswer = parseInt(document.getElementById("exercise3-answer").value);
+                const correctAnswer = 25 + 30;
+                const feedbackElement = document.getElementById("exercise3-feedback");
+
+                if (userAnswer === correctAnswer) {
+                    feedbackElement.textContent = "Correct! 25 + 30 equals 55.";
+                    feedbackElement.style.color = "#00ff00"; // Green color for correct answer
+                } else {
+                    feedbackElement.textContent = "Incorrect. Try again.";
+                    feedbackElement.style.color = "#ff0000"; // Red color for incorrect answer
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
