@@ -3,134 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+    <title>Penguin Math</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Student Dashboard</h1>
-        <div id="profile">
-            <h2>Profile</h2>
-            <p>Name: <span id="profile-name">User</span></p>
-            <p>Grade: <span id="grade">Select a grade</span></p>
-        </div>
-        <div id="time-tracker">
-            <h2>Time on Site</h2>
-            <p>This week: <span id="time-week">0 hours</span></p>
-        </div>
-        <div id="lesson-pathway">
-            <h2>Lesson Pathway</h2>
-            <p>Select your grade:</p>
-            <select id="grade-selector">
-                <option value="1">Grade 1</option>
-                <option value="2">Grade 2</option>
-                <!-- Add more grade options as needed -->
-            </select>
-            <button id="start-lessons">Start Lessons</button>
-        </div>
-    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Student Dashboard</h1>
+                <p>Welcome Select Your Grade!</p>
+                <a href="penguinhub.buzz/1grade.html" class="cta-button">1st Grade</a>
+                <a href="penguinhub.buzz/2grade.html" class="cta-button">2st Grade</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Penguin Learning. All Rights Reserved</p>
+    </footer>
 </body>
 </html>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+  /* Reset some default styles */
+body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
 
-.container {
-    background-color: #fff;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+/* Basic styles for the page */
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
     text-align: center;
 }
 
-h1 {
-    color: #009688;
+/* Header navigation styles */
+header {
+    background-color: #000;
+    padding: 10px 0;
 }
 
-select, button {
-    padding: 10px;
-    font-size: 1rem;
-    margin: 10px;
+nav ul {
+    list-style: none;
 }
 
-button {
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Hero section styles */
+.hero {
+    background-image: url('your-background-image.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
     background-color: #009688;
     color: #fff;
-    border: none;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
+    font-size: 18px;
 }
 
-button:hover {
-    background-color: #00796b;
+/* Features section styles */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    background-color: #333;
+}
+
+.feature {
+    flex: 1;
+    padding: 20px;
+}
+
+.feature h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #000;
+    padding: 10px 0;
+}
+
+footer p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Media queries for responsiveness (you can add more as needed) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .cta-button {
+        font-size: 16px;
+    }
+    .feature h2 {
+        font-size: 20px;
+    }
 }
 </style>
-<script>
-  // Function to set a cookie
-function setCookie(name, value, days) {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-    document.cookie = name + '=' + value + ';expires=' + expires.toUTCString();
-}
-
-// Function to get a cookie by name
-function getCookie(name) {
-    const cookieName = name + '=';
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const cookieArray = decodedCookie.split(';');
-    
-    for (let i = 0; i < cookieArray.length; i++) {
-        let cookie = cookieArray[i].trim();
-        if (cookie.indexOf(cookieName) === 0) {
-            return cookie.substring(cookieName.length, cookie.length);
-        }
-    }
-    
-    return '';
-}
-
-// Function to update the profile and grade
-function updateProfileAndGrade() {
-    const storedName = getCookie('username');
-    const storedGrade = getCookie('grade');
-    
-    if (storedName !== '') {
-        document.getElementById('profile-name').textContent = storedName;
-    }
-    
-    if (storedGrade !== '') {
-        document.getElementById('grade').textContent = 'Grade ' + storedGrade;
-    }
-}
-
-// Function to update the time spent on the site
-function updateTimeOnSite() {
-    const storedTime = getCookie('timeOnSite');
-    const currentTime = new Date().getTime();
-    
-    if (storedTime !== '') {
-        const timeDifference = currentTime - parseInt(storedTime);
-        const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-        document.getElementById('time-week').textContent = hours + ' hours';
-    }
-}
-
-// Function to start lessons based on the selected grade
-function startLessons() {
-    const selectedGrade = document.getElementById('grade-selector').value;
-    setCookie('grade', selectedGrade, 7); // Cookie expires in 7 days
-    alert('Lessons for Grade ' + selectedGrade + ' will start!');
-}
-
-// Event listener for the "Start Lessons" button
-document.getElementById('start-lessons').addEventListener('click', startLessons);
-
-// Initialize the profile, grade, and time on site
-updateProfileAndGrade();
-updateTimeOnSite();
-</script>
